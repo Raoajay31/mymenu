@@ -1,5 +1,3 @@
-# Restaurant Menu System
-
 menu = {
     "Burger": 5.99,
     "Pizza": 8.99,
@@ -16,12 +14,16 @@ def show_menu():
         print(f"{item}: ${price:.2f}")
 
 def take_order():
-    while True:
-        item = input("\nEnter the item to order (or 'done' to finish): ").title()
+    predefined_orders = ['Pizza', 'Coffee', 'done']
+
+    for item in predefined_orders:
+        print(f"\nAuto-input: {item}")
+        item = item.title()
         if item.lower() == 'done':
             break
         if item in menu:
-            qty = int(input(f"How many {item}s would you like? "))
+            qty = 1  # Simulated quantity
+            print(f"How many {item}s would you like? 1")
             if item in order:
                 order[item] += qty
             else:
