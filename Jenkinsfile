@@ -2,16 +2,10 @@ pipeline {
     agent any
 
     environment {
-        PYTHON = 'python'  // or 'python3' if you're on Linux/macOS
+        PYTHON = 'python3'  // or 'python' if that's what your system uses
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Raoajay31/mymenu.git'
-            }
-        }
-
         stage('Run Python Script') {
             steps {
                 sh "${PYTHON} beescode.py"
@@ -28,3 +22,4 @@ pipeline {
         }
     }
 }
+
